@@ -1,5 +1,17 @@
 <view class="card-swiper">
-    <view wx:for="{{swiperData}}" data-index="{{index}}" class="{{'card-swiper-item curdistance' + (swiperCurIndex + index) +  (!!item.slideClass? item.slideClass: '')}}" bindtap="next" catchtouchstart="touchCard.start" catchtouchmove="touchCard.move" catchtouchend="touchCard.end" catchtouchcancel="touchCard.cancel">
-        {{item.name}}
-    </view>
+    <view wx:for="{{swiperData}}" data-index="{{index}}" 
+    class="{{'card-swiper-item curdistance' + (swiperCurIndex + index) +  (!!item.slideClass? item.slideClass: '')}}" 
+    bindtouchstart="touchCard.start" 
+    catchtouchmove="touchCard.move" 
+    bindtouchend="touchCard.end" 
+    bindtouchcancel="touchCard.cancel"
+    >
+        <text>{{item.name}}</text>
+        
+        <text>\n{{index}},{{swiperData.length-1}}</text>
+        <view class="card-action">
+            <button class="card-prev"  bindtap="prevButtonFun" data-index="{{index}}">上一个</button>
+            <button class="card-next"  bindtap="nextButtonFun" data-index="{{index}}">下一个</button>
+        </view>
+        </view>
 </view>

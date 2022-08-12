@@ -62,6 +62,7 @@ export default class YrobotTouch {
             pageOBJ[this._name + '.' + funcName] = this[funcName].bind(this)
     }
     start(evt) {
+        console.info("start-event")
         if (!evt.touches) return;
         this.now = Date.now();
         this.x1 = evt.touches[0].pageX == null ? evt.touches[0].x : evt.touches[0].pageX;
@@ -93,6 +94,7 @@ export default class YrobotTouch {
         }.bind(this), 750);
     }
     move(evt) {
+        console.info("move-event")
         if (!evt.touches) return;
         let preV = this.preV,
             len = evt.touches.length,
@@ -141,6 +143,7 @@ export default class YrobotTouch {
         }
     }
     end(evt) {
+        console.info("end-event")
         if (!evt.changedTouches) return;
         this._cancelLongTap();
         let self = this;
@@ -186,6 +189,7 @@ export default class YrobotTouch {
         this.x1 = this.x2 = this.y1 = this.y2 = null;
     }
     cancel(evt) {
+        console.info("cancel-ev")
         clearTimeout(this.singleTapTimeout);
         clearTimeout(this.tapTimeout);
         clearTimeout(this.longTapTimeout);

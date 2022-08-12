@@ -1,4 +1,4 @@
 <!--index.wxml-->
 <view class="container center">
-  <CardSwiper data="{{swiperData}}" bindloadmore="loadMore"> </CardSwiper>
+  <CardSwiper data="{{swiperData}}"> </CardSwiper>
 </view>
